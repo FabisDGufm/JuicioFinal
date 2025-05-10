@@ -5,13 +5,12 @@ def main():
     print("""Bienvenido a "Juicio Final"
     1. Versión con AVL
     2. Versión con datos primitivos
+    3. Salir
 """)
     try:
-        modo = int(input("Ingresa la versión que deseas utilizar (1 o 2): "))
+        modo = int(input("Ingresa la versión que deseas utilizar (1, 2 o 3): "))
         if modo == 1:
-            print("""
-Activando modo AVL...
-""")
+            print("""\nActivando modo AVL...\n""")
             print("""                ⚖️ EL JUICIO FINAL ⚖️
 Los dioses han asignado karmas aleatorios a cada grupo humano.
                   
@@ -21,9 +20,7 @@ Grupos generados:
             AVL.insert()
             menuAVL()
         elif modo == 2:
-            print("""
-Activando modo Datos Primitivos...
-""")
+            print("""\nActivando modo Datos Primitivos...\n""")
             print("""                ⚖️ EL JUICIO FINAL ⚖️
 Los dioses han asignado karmas aleatorios a cada grupo humano.
 
@@ -32,79 +29,89 @@ Grupos generados:
 """)
             primi.insert()
             menuPrimi()
+        elif modo == 3:
+            print("Saliendo del programa...")
         else:
-            print("""
-    Respuesta no válida, intenta de nuevo.
-                  """)
-            main()
+            print("\nRespuesta no válida. Reinicia el programa.\n")
     except ValueError:
-        print("""
-    Respuesta no válida, intenta de nuevo
-                  """)
-        main()
+        print("\nRespuesta no válida. Reinicia el programa.\n")
 
 def menuAVL(): 
-    print("""🧭 Menú de opciones:
+    while True:
+        print("""🧭 Menú de opciones:
     1. Ver al grupo más bondadoso
     2. Ver al grupo más malvado
     3. Ver todos los grupos ordenados por karma
-    4. Ver grupos con karma entre [x] y [y]
+    4. Ver grupos con karma entre 10 y 80
     5. Emitir juicio
     6. Salir""")
 
-    try:
-        opc = int(input("Ingresa el número de la opción que deseas realizar: "))
-        if (opc == 1):
-            print()
-        if (opc == 2):
-            print()
-        if (opc == 3):
-            print()
-        if (opc == 4):
-            print()
-        if (opc == 5):
-            print("""
-Tu decisión:
+        try:
+            opc = int(input("Ingresa el número de la opción que deseas realizar: "))
+            if opc == 1:
+                AVL.buscar_max()
+                print()
+            elif opc == 2:
+                AVL.buscar_min()
+                print()
+            elif opc == 3:
+                AVL.inorder()
+                print()
+            elif opc == 4:
+                AVL.buscar_rango()
+                print()
+            elif opc == 5:
+                print("""\nTu decisión:
     1. Salvar al más bondadoso
     2. Eliminar al más malvado
     3. Salvar los del rango 10-80
-    4. Dejar que el destino decida (random)""")
-        if (opc == 6):
-            print()
-    except ValueError:
-        print("Respuesta no válida, intenta de nuevo.")
-        menuAVL()
+    4. Dejar que el destino decida (random)\n""")
+                AVL.decision()
+            elif opc == 6:
+                print("Saliendo del modo AVL...\n")
+                exit()
+            else:
+                print("Opción no válida, intenta de nuevo.\n")
+        except ValueError:
+            print("Respuesta no válida, intenta de nuevo.\n")
 
 def menuPrimi(): 
-    print("""🧭 Menú de opciones:
+    while True:
+        print("""🧭 Menú de opciones:
     1. Ver al grupo más bondadoso
     2. Ver al grupo más malvado
     3. Ver todos los grupos ordenados por karma
-    4. Ver grupos con karma entre [x] y [y]
+    4. Ver grupos con karma entre 10 y 80
     5. Emitir juicio
     6. Salir""")
-    opc = input("Ingresa el número de la opción que deseas realizar: ")
 
-    try:
-        if (opc == 1):
-            print()
-        if (opc == 2):
-            print()
-        if (opc == 3):
-            print()
-        if (opc == 4):
-            print()
-        if (opc == 5):
-            print("""
-Tu decisión:
+        try:
+            opc = int(input("Ingresa el número de la opción que deseas realizar: "))
+            if opc == 1:
+                primi.buscar_max()
+                print()
+            elif opc == 2:
+                primi.buscar_min()
+                print()
+            elif opc == 3:
+                primi.inorder()
+                print()
+            elif opc == 4:
+                primi.buscar_rango()
+                print()
+            elif opc == 5:
+                print("""\nTu decisión:
     1. Salvar al más bondadoso
     2. Eliminar al más malvado
     3. Salvar los del rango 10-80
-    4. Dejar que el destino decida (random)""")
-        if (opc == 6):
-            print()
-    except ValueError:
-        print("Respuesta no válida, intenta de nuevo.")
-        menuPrimi()
+    4. Dejar que el destino decida (random)\n""")
+                primi.decision()
+            elif opc == 6:
+                print("Saliendo del modo Datos Primitivos...\n")
+                exit()
+            else:
+                print("Opción no válida, intenta de nuevo.\n")
+        except ValueError:
+            print("Respuesta no válida, intenta de nuevo.\n")
 
 main()
