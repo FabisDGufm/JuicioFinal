@@ -2,10 +2,6 @@ import random
 from tree import NodeAVL, AVLTree
 tree = AVLTree()
 
-def AVL():
-    
-    print()
-
 def insert():
     grupos = ["Kids", "Ancianos", "Politicos", "Cientificos", "Ladrones", "Artistas"]
     
@@ -24,10 +20,17 @@ def buscar_max():
     while current_node.right:
         current_node = current_node.right
     
-    print(current_node.nombre)
+    return(current_node.nombre, current_node.karma)
 
 def buscar_min():
-    print()
+    if not tree.root:
+        return None
+    
+    current_node = tree.root
+    
+    while current_node.left:
+        current_node = current_node.left
+    return(current_node.nombre, current_node.karma)
 
 def buscar_rango():
     inf = 10
@@ -62,5 +65,9 @@ def _inorder(node):
         _inorder(node.left)
    
 
-def decision():
+def decision(den):
+    if (den == 1):
+        print()
+
+def aleatorio():
     print()

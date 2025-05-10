@@ -88,7 +88,8 @@ def menuPrimi():
         try:
             opc = int(input("Ingresa el número de la opción que deseas realizar: "))
             if opc == 1:
-                primi.buscar_max()
+                nom, karma = primi.buscar_max()
+                print(f"🟢 El grupo más bondadoso es: {nom} con karma {karma}")
                 print()
             elif opc == 2:
                 primi.buscar_min()
@@ -105,7 +106,8 @@ def menuPrimi():
     2. Eliminar al más malvado
     3. Salvar los del rango 10-80
     4. Dejar que el destino decida (random)\n""")
-                primi.decision()
+                den = int(input("Ingresa el número de la opción que deseas realizar: "))
+                primi.decision(den)
             elif opc == 6:
                 print("Saliendo del modo Datos Primitivos...\n")
                 exit()
