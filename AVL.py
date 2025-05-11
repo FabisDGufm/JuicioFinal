@@ -36,20 +36,26 @@ def buscar_rango():
     inf = 10
     sup = 80
     print(f"Grupos con karma entre {inf} y {sup}:")
-    _buscar_rango(tree.root, inf, sup)
+    encontrados = []
+    _buscar_rango(tree.root, inf, sup, encontrados)
 
-def _buscar_rango(node, inf, sup):
+    if not encontrados:
+        print("No existe grupo que esté dentro de ese intervalo de karma.\n")
+
+def _buscar_rango(node, inf, sup, encontrados):
     if not node:
         return
 
     if inf < node.karma:
-        _buscar_rango(node.left, inf, sup)
+        _buscar_rango(node.left, inf, sup, encontrados)
 
     if inf <= node.karma <= sup:
         print(f"{node.nombre} (karma: {node.karma})")
+        encontrados.append(node)
 
     if node.karma < sup:
-        _buscar_rango(node.right, inf, sup)
+        _buscar_rango(node.right, inf, sup, encontrados)
+
 
 
 

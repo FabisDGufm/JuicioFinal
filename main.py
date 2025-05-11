@@ -49,11 +49,11 @@ def menuAVL():
         try:
             opc = int(input("Ingresa el número de la opción que deseas realizar: "))
             if opc == 1:
-                AVL.buscar_max()
-                print()
+                nom, karma = AVL.buscar_max()
+                print(f"🟢 El grupo más bondadoso es: {nom} con karma {karma}")
             elif opc == 2:
-                AVL.buscar_min()
-                print()
+                nom, karma = AVL.buscar_min()
+                print(f"🔴 El grupo más malvado es: {nom} con karma {karma}")
             elif opc == 3:
                 AVL.inorder()
                 print()
@@ -66,7 +66,10 @@ def menuAVL():
     2. Eliminar al más malvado
     3. Salvar los del rango 10-80
     4. Dejar que el destino decida (random)\n""")
-                AVL.decision()
+                den = int(input("Ingresa el número de la opción que deseas realizar: "))
+                AVL.decision(den)
+                print("\n⚖️ El juicio ha sido emitido. Fin del Juicio Final.")
+                exit()
             elif opc == 6:
                 print("Saliendo del modo AVL...\n")
                 exit()
@@ -92,7 +95,8 @@ def menuPrimi():
                 print(f"🟢 El grupo más bondadoso es: {nom} con karma {karma}")
                 print()
             elif opc == 2:
-                primi.buscar_min()
+                nom, karma = primi.buscar_min()
+                print(f"🔴 El grupo más malvado es: {nom} con karma {karma}")
                 print()
             elif opc == 3:
                 primi.inorder()
@@ -108,6 +112,9 @@ def menuPrimi():
     4. Dejar que el destino decida (random)\n""")
                 den = int(input("Ingresa el número de la opción que deseas realizar: "))
                 primi.decision(den)
+                print("\n⚖️ El juicio ha sido emitido. Fin del Juicio Final.")
+                exit()
+
             elif opc == 6:
                 print("Saliendo del modo Datos Primitivos...\n")
                 exit()
