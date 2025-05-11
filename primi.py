@@ -53,6 +53,30 @@ def buscar_max():
 
 
 def buscar_min():
+
+    global kids, val_kids, ancianos, val_ancianos, politicos, val_politicos, cientificos, val_cientificos, ladrones, val_ladrones, artistas, val_artistas
+    nom_min = ""
+    karma_min = 101  # Valor más alto posible
+    if (val_kids <= karma_min):
+        nom_min = kids
+        karma_min = val_kids
+    elif (val_ancianos <= karma_min):
+        nom_min = ancianos
+        karma_min = val_ancianos
+    elif (val_politicos <= karma_min):
+        nom_min = politicos
+        karma_min = val_politicos
+    elif (val_cientificos <= karma_min):
+        nom_min = cientificos
+        karma_min = val_cientificos
+    elif (val_ladrones <= karma_min):
+        nom_min = ladrones
+        karma_min = val_ladrones
+    elif (val_artistas <= karma_min):
+        nom_min = artistas
+        karma_min = val_artistas
+    return (nom_min, karma_min)
+
     print()
 
 def buscar_rango():
@@ -91,5 +115,27 @@ def inorder():
     
     print()
     
+def aleatorio():
+    
+    opcion = random.randint(1, 6)
+
+    if opcion == 1:
+        elegido = kids
+    elif opcion == 2:
+        elegido = ancianos
+    elif opcion == 3:
+        elegido = politicos
+    elif opcion == 4:
+        elegido = cientificos
+    elif opcion == 5:
+        elegido = ladrones
+    elif opcion == 6:
+        elegido = artistas
+
+    print(f"Decisión tomada: Se ha seleccionado al grupo '{elegido}'\n")
+    
+    
 def decision():
-    print()
+     print()
+    
+    
