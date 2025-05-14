@@ -38,7 +38,8 @@ Grupos generados:
 
 def menuAVL(): 
     while True:
-        print("""🧭 Menú de opciones:
+        print("""
+🧭 Menú de opciones:
     1. Ver al grupo más bondadoso
     2. Ver al grupo más malvado
     3. Ver todos los grupos ordenados por karma
@@ -74,13 +75,14 @@ def menuAVL():
                 print("Saliendo del modo AVL...\n")
                 exit()
             else:
-                print("Opción no válida, intenta de nuevo.\n")
+                print("*Opción no válida, intenta de nuevo.\n")
         except ValueError:
             print("Respuesta no válida, intenta de nuevo.\n")
 
 def menuPrimi(): 
     while True:
-        print("""🧭 Menú de opciones:
+        print("""
+🧭 Menú de opciones:
     1. Ver al grupo más bondadoso
     2. Ver al grupo más malvado
     3. Ver todos los grupos ordenados por karma
