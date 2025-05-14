@@ -72,8 +72,24 @@ def _inorder(node):
    
 
 def decision(den):
-    if (den == 1):
-        print()
+    if den == 1:
+        nombre, karma = buscar_max()
+        print(f"🟢 Has decidido salvar al grupo más bondadoso: {nombre} con karma {karma}")
+    elif den == 2:
+        nombre, karma = buscar_min()
+        print(f"🔴 Has decidido eliminar al grupo más malvado: {nombre} con karma {karma}")
+    elif den == 3:
+        print("🟡 Has decidido salvar los grupos con karma entre 10 y 80:")
+        buscar_rango()
+    elif den == 4:
+        print("⚖️ Has decidido dejar que el destino decida:")
+        aleatorio()
 
 def aleatorio():
+    nodos = []
+    tree._recoger_nodos(tree.root, nodos)
+
+    elegido = random.choice(nodos)
+    
+    print(f"El grupo salvado es '{elegido.nombre}'\n")
     print()

@@ -106,13 +106,53 @@ def buscar_rango():
     print()
 
 def inorder():
-    primero = ""
-    segundo = ""
-    tercero = ""
-    cuarto = ""
-    quinto = ""
-    sexto = ""
-    
+    global kids, val_kids, ancianos, val_ancianos, politicos, val_politicos, cientificos, val_cientificos, ladrones, val_ladrones, artistas, val_artistas
+
+    g1, v1 = kids, val_kids
+    g2, v2 = ancianos, val_ancianos
+    g3, v3 = politicos,val_politicos
+    g4, v4 = cientificos, val_cientificos
+    g5, v5 = ladrones, val_ladrones
+    g6, v6 = artistas, val_artistas
+
+    print("Recorrido in-order (de mayor a menor):")
+
+    for i in range(6):
+        karma_max = -101
+        gM = ""
+        if (v1 >= karma_max):
+            gM = g1
+            karma_max = v1
+        if(v2 >= karma_max):
+            gM = g2
+            karma_max = v2
+        if(v3 >= karma_max):
+            gM = g3
+            karma_max = v3    
+        if(v4 >= karma_max):
+            gM = g4
+            karma_max = v4
+        if(v5 >= karma_max):
+            gM = g5
+            karma_max = v5
+        if(v6 >= karma_max):
+            gM = g6
+            karma_max = v6
+
+        print(f"Grupo: {gM} | Karma: {karma_max}")
+
+        if (gM == g1):
+            v1 = -1000
+        elif (gM == g2):
+            v2 = -1000
+        elif (gM == g3):
+            v3 = -1000
+        elif (gM == g4):
+            v4 = -1000
+        elif (gM == g5):
+            v5 = -1000
+        elif (gM == g6):
+            v6 = -1000    
     print()
     
 def aleatorio():

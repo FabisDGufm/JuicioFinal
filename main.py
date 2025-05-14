@@ -114,7 +114,7 @@ def menuPrimi():
     4. Dejar que el destino decida (random)\n""")
                 den = int(input("Ingresa el número de la opción que deseas realizar: "))
                 primi.decision(den)
-                print("\n⚖️ El juicio ha sido emitido. Fin del Juicio Final.")
+                print("\n⚖️ El juicio ha sido emitido. \n\n     Fin del Juicio Final")
                 exit()
 
             elif opc == 6:
