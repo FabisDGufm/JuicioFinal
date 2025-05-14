@@ -169,9 +169,14 @@ class AVLTree:
         zipped_lines = zip(left, right)
         lines = [first_line, second_line] + [a + u * ' ' + b for a, b in zipped_lines]
         return lines, n + m + u, max(p, q) + 2, n + u // 2
-    
-    def _recoger_nodos(node, lista):
+
+    def _collect_nodes(self, node, lista):
         if node:
-            _recoger_nodos(node.left, lista)
+            self._collect_nodes(node.left, lista)
             lista.append(node)
-            _recoger_nodos(node.right, lista)
+            self._collect_nodes(node.right, lista)
+
+    def get_all_nodes(self):
+        nodos = []
+        self._collect_nodes(self.root, nodos)
+        return nodos

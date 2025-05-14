@@ -86,8 +86,7 @@ def decision(den):
         aleatorio()
 
 def aleatorio():
-    nodos = []
-    tree._recoger_nodos(tree.root, nodos)
+    nodos = tree.get_all_nodes()
 
     elegido = random.choice(nodos)
     
