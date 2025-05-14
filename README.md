@@ -1,4 +1,4 @@
-# JuicioFinal  
+# Juicio Final  
 **Proyecto final de Estructuras de Datos**
 
 ---
@@ -83,7 +83,24 @@ El objetivo es **demostrar las ventajas del uso del AVL** frente a soluciones m�
 - En la versión primitiva se usan extensivamente `if`, `elif` y `else` para replicar la lógica del AVL
 
 
-### Organización de código
+## Conclusiones del Proyecto
+
+Durante el desarrollo de este proyecto, nos propusimos como objetivo resolver un mismo problema utilizando dos enfoques distintos: uno basado en un árbol AVL y otro utilizando únicamente datos primitivos.
+
+### Retos encontrados
+
+El mayor desafío surgió al trabajar con **datos primitivos**, ya que, al no contar con estructuras como listas o árboles, fue necesario encontrar soluciones empleando condicionales `if` y `elif`. Este enfoque implicó más líneas de código y un esfuerzo adicional en la lógica.
+
+Por el contrario, la implementación con **árbol AVL** resultó mucho más eficiente y manejable, especialmente al realizar operaciones como la búsqueda del valor máximo o mínimo, donde pudimos aprovechar las ventajas que trae esta estructura.
+
+### Reflexiones finales
+
+Este proyecto dejó claro que el uso de **estructuras de datos** no solo simplifica el desarrollo, sino que también mejora la legibilidad, eficiencia y mantenibilidad del código. Si bien trabajar con datos primitivos fue una experiencia enriquecedora desde el punto de vista lógico, trabajar con árboles AVL ofreció una solución más elegante y funcional.
+
+A pesar de las dificultades, logramos cumplir con el objetivo de implementar un **juego funcional utilizando ambos enfoques**, demostrando así nuestras habilidades para resolver problemas desde distintas perspectivas.
+
+
+## Organización de código
 
 * [tree](https://github.com/FabisDGufm/JuicioFinal/blob/main/tree.py)
 * [main](https://github.com/FabisDGufm/JuicioFinal/blob/main/main.py)
