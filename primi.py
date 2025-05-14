@@ -30,7 +30,7 @@ def insert():
 def buscar_max():
     global kids, val_kids, ancianos, val_ancianos, politicos, val_politicos, cientificos, val_cientificos, ladrones, val_ladrones, artistas, val_artistas
     nom_max = ""
-    karma_max = 0
+    karma_max = -101
     if (val_kids >= karma_max):
         nom_max = kids
         karma_max = val_kids
