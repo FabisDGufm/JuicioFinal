@@ -18,6 +18,8 @@ Otra decisión diferente a las dos anteriores, sería la de elegir **salvar a lo
 
 Finalmente, puedes dejar todo en manos del destino, y que **sea un grupo random el que sea salvado**, condenando al resto. Su elección sería totalmente aleatoria y tu no tendrías ningun tipo de poder directamente a la hora de decidir especificamente el destino de cada uno.
 
+El uso del AVL fue elegido porque permite mantener el conjunto de grupos ordenado por karma de forma automática, facilitando búsquedas como el más bondadoso, el más malvado o los que están dentro de un rango, sin necesidad de ordenar manualmente o recorrer listas enteras sin estructura.
+
 
 ---
 
@@ -35,12 +37,12 @@ Esto permite **búsquedas eficientes** para funcionalidades como:
 
 ### Funcionalidades con AVL
 
-- `insert()`: Calcula e inserta los valores de karma al árbol.
-- `buscar_max()`: Devuelve el grupo con el karma más alto (más bondadoso).
-- `buscar_min()`: Devuelve el grupo con el karma más bajo (más malvado).
-- `buscar_rango(inf, sup)`: Encuentra grupos con karma entre dos valores dados.
-- `inorder()`: Muestra todos los grupos ordenados de menor a mayor karma.
-- `decision()`: Muestra opciones al jugador para decidir:
+- `insert()`: Calcula e inserta los valores de karma al árbol. Cada grupo humano es insertado en el árbol AVL, utilizando su karma como key. Esto garantiza que el árbol se mantenga balanceado, y las operaciones posteriores puedan hacerse en tiempo logarítmico.
+- `buscar_max()`: Devuelve el grupo con el karma más alto (más bondadoso). Se recorre el árbol hacia el nodo más a la derecha (mayor karma).
+- `buscar_min()`: Devuelve el grupo con el karma más bajo (más malvado). Se recorre el árbol hacia el nodo más a la izquierda (menor karma). 
+- `buscar_rango(inf, sup)`: Encuentra grupos con karma entre dos valores dados. Se recorre el árbol y se seleccionan todos los nodos cuyo karma esté dentro del rango especificado.
+- `inorder()`: Muestra todos los grupos ordenados de menor a mayor karma. Se realiza un recorrido in-order del árbol AVL, mostrando los grupos de menor a mayor karma.
+- `decision()`: Muestra opciones al jugador para decidir, utilizando el AVL para encontrar rápidamente los grupos requeridos:
   1. Salvar al más bondadoso  
   2. Eliminar al más malvado  
   3. Salvar a los del rango # - #  
@@ -80,10 +82,10 @@ El objetivo es **demostrar las ventajas del uso del AVL** frente a soluciones m�
 - Se comparan **6 grupos humanos**
 - Se utiliza `int` para los valores de karma y `str` para los nombres
 - Se emplea `random` para la generación de karma
-- En la versión primitiva se usan extensivamente `if`, `elif` y `else` para replicar la lógica del AVL
+- En la versión primitiva se usan extensivamente `if`, `elif` y `else` para resolver los distintos problemas sin la necesidad de ningúna estructura de datos.
 
 
-## Conclusiones del Proyecto
+## Conclusiones del Proyecto (y del uso de AVL vs primitivos durante el desarrollo)
 
 Durante el desarrollo de este proyecto, nos propusimos como objetivo resolver un mismo problema utilizando dos enfoques distintos: uno basado en un árbol AVL y otro utilizando únicamente datos primitivos.
 
@@ -99,10 +101,62 @@ Este proyecto dejó claro que el uso de **estructuras de datos** no solo simplif
 
 A pesar de las dificultades, logramos cumplir con el objetivo de implementar un **juego funcional utilizando ambos enfoques**, demostrando así nuestras habilidades para resolver problemas desde distintas perspectivas.
 
+## Instrucciones para ejecutar
 
-## Organización de código
+### 1. Ejecutar el programa
+Ejecuta el archivo `main.py`. No es necesario realizar ninguna importación adicional.
 
-* [tree](https://github.com/FabisDGufm/JuicioFinal/blob/main/tree.py)
-* [main](https://github.com/FabisDGufm/JuicioFinal/blob/main/main.py)
-* [AVL](https://github.com/FabisDGufm/JuicioFinal/blob/main/AVL.py)
-* [primi](https://github.com/FabisDGufm/JuicioFinal/blob/main/primi.py)
+---
+
+### 2. Elegir la versión
+Al iniciar, se te presentarán tres opciones:
+
+1. **Versión AVL**  
+2. **Versión con datos primitivos**  
+3. **Salir del programa**
+
+Selecciona una opción escribiendo el número correspondiente (`1`, `2` o `3`).
+
+---
+
+### 3. Opciones disponibles en la versión AVL
+
+Si eliges la opción `1` (Versión AVL), se mostrarán las siguientes opciones para visualizar información:
+
+- `1` → Ver el grupo **más bondadoso**  
+- `2` → Ver el grupo **más malvado**  
+- `3` → Ver **todos los grupos ordenados** de mayor a menor karma  
+- `4` → Ver grupos con un karma **entre 10 y 80**  
+- `5` → **Emitir juicio final**  
+- `6` → **Salir del programa**
+
+> ⚠️ Las opciones del `1` al `4` se pueden ejecutar cuantas veces se desee.
+
+---
+
+### 4. Emitir el juicio final
+
+Si eliges la opción `5`, se te pedirá tomar una decisión final entre las siguientes:
+
+1. **Salvar al más bondadoso**  
+2. **Eliminar al más malvado**  
+3. **Salvar a los grupos con karma entre 10 y 80**  
+4. **Salvar un grupo completamente aleatorio**
+
+El resultado se mostrará así, terminando automaticamente el programa:
+
+🟢 Has decidido salvar al grupo más bondadoso: Ancianos con karma 92
+
+⚖️ El juicio ha sido emitido.
+
+Fin del Juicio Final.
+
+  
+
+
+## Diagrama de Archivos
+
+* [tree](https://github.com/FabisDGufm/JuicioFinal/blob/main/tree.py): Archivo que contiene la estructura AVL Tree que se utilizó.
+* [main](https://github.com/FabisDGufm/JuicioFinal/blob/main/main.py): Archivo utilizado para correr el juego, el mismo contiene el codigo para el menu, tanto para elegir cual de las dos formas se usará, asi como cuál de todas las funcionalidades se ejecutará, terminando con la emisión del juicio para terminar de correrlo.
+* [AVL](https://github.com/FabisDGufm/JuicioFinal/blob/main/AVL.py): Archivo que contiene las funciones de las distintas operaciones que se hacen usando el AVL.
+* [primi](https://github.com/FabisDGufm/JuicioFinal/blob/main/primi.py): Archivo que contiene las funciones de las distintas operaciones que se usan usando solo datos primitivos.
